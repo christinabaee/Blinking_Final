@@ -1,0 +1,32 @@
+#include <Keyboard.h>
+
+int flexpin1 = A0;
+int flexpin2 =A1;
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin (9600);
+  Keyboard.begin();
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  int flexVal1 = analogRead(flexpin1);
+  int flexVal2 = analogRead(flexpin2);
+  /*
+  Serial.print("flex1: ");
+  Serial.println(flexVal1);
+  
+    Serial.print("flex2: ");
+  Serial.println(flexVal2);
+  */
+
+  if (flexVal1>430){
+    Keyboard.press('d');
+  } else Keyboard.release('d');
+
+    if (flexVal2>220){
+    Keyboard.press('d');
+  } else Keyboard.release('d');
+
+  delay(100);
+}
